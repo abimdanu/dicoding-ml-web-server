@@ -9,7 +9,7 @@ const { loadModel, predict } = require('./inference');
     // initializing HTTP server
     const server = Hapi.server({
         host: process.env.NODE_ENV !== 'production' ? 'localhost' : '0.0.0.0',
-        port: 8080
+        port: 3000
     });
 
     server.route({
@@ -21,7 +21,7 @@ const { loadModel, predict } = require('./inference');
 
             // do and get prediction result by giving model and image
             const predictions = await predict(model, image);
-
+            
             // get prediction result
             const [paper, rock] = predictions;
 
@@ -35,7 +35,6 @@ const { loadModel, predict } = require('./inference');
 
             return { result: 'scissors' };
         },
-
         // make request payload as `multipart/form-data` to accept file upload
         options: {
             payload: {
@@ -43,21 +42,10 @@ const { loadModel, predict } = require('./inference');
                 multipart: true,
             }
         }
-    },
-    {
-        method: 'GET',
-        path: '/test',
-        handler: (request, h) => {
-            console.log("Received message!");
-            return h.response({
-                status: 'success',
-                message: 'Yay!'
-            }).code(200)
-        }
     });
 
     // running server
     await server.start();
 
-    console.log(`Server is running at: ${server.info.uri}`);
+    console.log(`Server start at: ${server.info.uri}`);
 })();

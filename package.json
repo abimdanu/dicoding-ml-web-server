@@ -1,5 +1,5 @@
 {
-  "name": "ml-web-server-wsl",
+  "name": "ml-web-server",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^21.3.9",
-    "@tensorflow/tfjs-node": "^4.19.0"
+    "@hapi/hapi": "^21.3.2",
+    "@tensorflow/tfjs-node": "^4.13.0"
   }
 }

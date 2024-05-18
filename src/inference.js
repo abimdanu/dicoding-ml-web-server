@@ -15,4 +15,4 @@ function predict(model, imageBuffer) {
     return model.predict(tensor).data();
 }
 
-module.exports = { loadModel, predict }
+module.exports = { loadModel, predict };
